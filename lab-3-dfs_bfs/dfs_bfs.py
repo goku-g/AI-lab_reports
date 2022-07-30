@@ -56,8 +56,8 @@ graph = {
         'H': ['E']
         }
 
-start = 'B'
-goal = 'G'
+start = 'A'
+goal = 'H'
 
 done, path = DFS(graph, start, goal)
 print(done)
