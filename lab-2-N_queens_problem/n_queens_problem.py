@@ -25,7 +25,6 @@ class grid:
         row = posx
         col = posy
         while(row<self.queens and col<self.queens):
-            # print(row, col, end=",")
             if(self.grid[row][col] == 'Q'):
                 return False
             row += 1
@@ -33,7 +32,6 @@ class grid:
         row = posx
         col = posy
         while(row<self.queens and col>=0):
-            # print(row, col, end=",")
             if(self.grid[row][col] == 'Q'):
                 return False
             row += 1
@@ -41,7 +39,6 @@ class grid:
         row = posx
         col = posy
         while(row>=0 and col<self.queens):
-            # print(row, col)
             if(self.grid[row][col] == 'Q'):
                 return False
             row -= 1
@@ -53,7 +50,6 @@ class grid:
         self.grid[posx][posy] = 'Q'
 
     def reset(self, posx, posy):
-        # self.grid = [[' ' for i in range(self.queens)] for j in range(self.queens)]
         self.grid[posx][posy] = ' '
 
     def show(self):
@@ -75,7 +71,6 @@ nfqueen = int(input("Enter no. of Queen: "))
 board = grid(nfqueen)
 
 done = nqueen(board, 0, nfqueen)
-
 
 if(done):
     board.show()
