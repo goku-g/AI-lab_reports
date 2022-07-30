@@ -1,10 +1,15 @@
-list_val = [1, 1, 1, 1, 1, 1, 1]
+val = int(input("How many numbers in the list: "))
+list_val = []
 
-s = 0
+for i in range(val):
+    data = int(input("Enter {} number: ".format(i+1)))
+    list_val.append(data)
+
+summation = 0
 for num in list_val:
-    s = s + num
+    summation = summation + num
 
-print(s)
+print(summation)
 
 # alternatively:
 # s = sum(list_val)
