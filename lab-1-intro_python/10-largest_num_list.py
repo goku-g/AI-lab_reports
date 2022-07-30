@@ -1,5 +1,7 @@
 arr = [88, 99, 77, 13, 51]
 array = arr
+
+print(array)
 l = len(array)
 
 for j in range(l-1):
