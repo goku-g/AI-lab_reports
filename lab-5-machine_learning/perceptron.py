@@ -1,3 +1,4 @@
+from random import random
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -16,10 +17,9 @@ x = [[1, 1, 1], [1, 1, -1], [1, -1, 1], [1, -1, -1]]
 
 y = [1, 1, 1, -1]
 
-rand = np.random.RandomState(42)
-theta = rand.uniform(size=(3, 1))*0.5
+theta = np.random.uniform(size=(3, 1))*0.5
 
-print("Theta\n", theta)
+print("Initial theta: {}".format(theta))
 
 alpha = 0.1
 errors = []
@@ -27,7 +27,13 @@ theta0 = []
 theta1 = []
 theta2 = []
 
-for k in range(10):
+theta0.append(theta[0])
+theta1.append(theta[1])
+theta2.append(theta[2])
+
+# print("Theta: {}, {}, {}".format(theta0, theta1, theta2))
+
+for k in range(5):
     for i in range(len(x)):
         val = theta[0] + x[i][1]*theta[1] +x[i][2]*theta[2]
         y_hat = step(val)
@@ -41,10 +47,32 @@ for k in range(10):
         theta1.append(theta[1])
         theta2.append(theta[2])
 
+def predict(X, theta):
+    val = theta[0]
+    for i in range(len(theta)-1):
+        val = val + X[i]*theta[i+1]
+    
+    return step(val)
+
+print("Final theta: {}".format(theta))
+
+example = [-1, 1]
+out = predict(example, theta)
+
+print("\nPrediction")
+print("Input: {}\nOutput: {}".format(example, out))
 
 fig, ax = plt.subplots(2, 2, figsize=(13, 9))
 ax[0,0].plot(theta0)
 ax[0,1].plot(theta1)
 ax[1,0].plot(theta2)
 ax[1,1].plot(errors)
+
+ax[0,0].title.set_text("Weight 1")
+ax[0,1].title.set_text("Weight 2")
+ax[1,0].title.set_text("Weight 3")
+ax[1,0].title.set_text("Error")
+ax[0,0].plot(theta0, "r-")
+ax[0,1].plot(theta1, "b-")
+ax[1,0].plot(theta2, "g-")
 plt.show()
