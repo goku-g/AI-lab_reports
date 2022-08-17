@@ -1,3 +1,5 @@
+import pprint
+
 tree1 = {
     'A':['B', 'C'], 
     'B':['A','D', 'E'], 
@@ -10,29 +12,18 @@ tree1 = {
 }
 
 tree2 = {
-    'Biratnagar':['Itahari', 'Biratchowk', 'Rangeli'], 
-    'Itahari':['Biratnagar', 'Biratchowk', 'Dharan'], 
-    'Dharan':['Itahari'], 
-    'Biratchowk':['Biratnagar', 'Itahari', 'Kanepokhari'], 
-    'Rangeli':['Biratnagar', 'Kanepokhari', 'Urlabari'], 
-    'Kanepokhari':['Biratchowk', 'Rangeli', 'Urlabari'], 
-    'Urlabari':['Kanepokhari', 'Rangeli', 'Damak'], 
-    'Damak':['Urlabari']
+    'Biratnagar':[{'Itahari':22}, {'Biratchowk':30}, {'Rangeli':25}], 
+    'Itahari':[{'Biratnagar':22}, {'Biratchowk':11}, {'Dharan':20}], 
+    'Dharan':[{'Itahari':20}], 
+    'Biratchowk':[{'Biratnagar':30}, {'Itahari':11}, {'Kanepokhari':10}], 
+    'Rangeli':[{'Biratnagar':25}, {'Kanepokhari':25}, {'Urlabari':40}], 
+    'Kanepokhari':[{'Biratchowk':10}, {'Rangeli':25}, {'Urlabari':12}], 
+    'Urlabari':[{'Kanepokhari':12}, {'Rangeli':40}, {'Damak':6}], 
+    'Damak':[{'Urlabari':6}]
 }
 
-tree2_wt = {
-    ['Biratnagar', 'Itahari']: 22,
-    ['Biratnagar', 'Biratchowk']: 30,
-    ['Biratnagar', 'Rangeli']: 25,
-    ['Itahari', 'Biratchowk']: 11,
-    ['Itahari', 'Dharan']: 20,
-    ['Biratchowk', 'Kanepokhari']: 10, 
-    ['Rangeli', 'Kanepokhari']: 25,
-    ['Rangeli', 'Urlabari']: 40, 
-    ['Kanepokhari', 'Urlabari']: 12, 
-    ['Urlabari', 'Damak']: 6,
-}
-
-# stack = []
-# visited = set()
-# pre_vert ={}
+print("")
+pprint.pprint(tree1)
+print("")
+pprint.pprint(tree2)
+print("")
